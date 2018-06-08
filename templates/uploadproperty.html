@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>search property</title>
+<style>
+    .body{
+
+        background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+        background-size: cover;
+        -webkit-filter: blur(0.6px);
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="body">
+
+<div style="width: 1380px;height: 600px;">
+
+    <div>Happy<span>Homes</span></div>
+    <form style="margin-left: 800px; margin-top: 120px;" ng-submit="submit()">
+
+        <input type="text" ng-model="input.location" placeholder="Location"  style="height: 25px;width: 200px;"><br>
+         <BR>
+        Type::
+        <select ng-model="input.type" style="width: 160px;height: 25px;">
+            <option ng-repeat="product in productList" value="{{product}}">{{product}}</option>
+
+        </select> <BR><BR>
+        Features::
+        <select ng-model="input.features" style="width: 140px;height: 25px;">
+            <option ng-repeat="product in features" value="{{product}}">{{product}}</option>
+        </select>
+        <br><br>
+        <input type="text" ng-model="input.cost" placeholder="Cost"  style="height: 25px;width: 200px;"><br>        <br>
+        <input type="submit" value="Submit">
+
+    </form>
+
+<!-- start-->
+
+  <!--  <form  ng-controller="MyCtrl" name="form">
+&lt;!&ndash;
+        Single Image with validations
+&ndash;&gt;
+        <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+             ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
+             ngf-resize="{width: 100, height: 100}">Select</div>
+        &lt;!&ndash;Multiple files&ndash;&gt;
+        &lt;!&ndash;<div class="button" ngf-select ng-model="files" ngf-multiple="true">Select</div>
+        Drop files: <div ngf-drop ng-model="files" class="drop-box">Drop</div>&ndash;&gt;
+        <button type="submit" ng-click="submit()">submit</button>
+    </form>-->
+
+
+    <!--ending -->
+</div>
+  <!-- <form  ng-controller="MyCtrl as up" name="up.upload_form">
+        Single Image with validations
+        <input
+                type="file"
+                ngf-select
+                ng-model="up.file"
+                name="file"
+                ngf-pattern="'image/*'"
+                accept="image/*"
+                ngf-max-size="20MB"
+        />
+        Image thumbnail: <img style="width:100px;" ng-show="!!up.file" ngf-thumbnail="up.file || '/thumb.jpg'"/>
+        <i ng-show="up.upload_form.file.$error.required">*required</i><br>
+        <i ng-show="up.upload_form.file.$error.maxSize">File too large
+            {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+        &lt;!&ndash;  Multiple files
+         <div class="button" ngf-select ng-model="up.files" ngf-multiple="true">Select</div>
+         Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> &ndash;&gt;
+        <button type="submit" ng-click="up.submit()">submit</button>
+        <p>{{up.progress}}</p>
+    </form>-->
+
+
+</div>
+
+</div>
+<br>
+
+
+
+
+
+
+
+
+</body>
+</html>

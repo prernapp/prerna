@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>search property</title>
+
+
+
+    <style>
+        /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+        @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+        @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+        body{
+            margin: 0;
+            padding: 0;
+            background: #fff;
+
+            color: #fff;
+            font-family: Arial;
+            font-size: 12px;
+        }
+
+        .body{
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -40px;
+            bottom: -40px;
+            width: auto;
+            height: auto;
+            background-image: url(http://ginva.com/wp-content/uploads/2012/07/city-skyline-wallpapers-008.jpg);
+            background-size: cover;
+            -webkit-filter: blur(5px);
+            z-index: 0;
+        }
+
+        .grad{
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -40px;
+            bottom: -40px;
+            width: auto;
+            height: auto;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+            z-index: 1;
+            opacity: 0.7;
+        }
+
+        .header{
+            position: absolute;
+            top: calc(50% - 35px);
+            left: calc(50% - 255px);
+            z-index: 2;
+        }
+
+        .header div{
+            float: left;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 35px;
+            font-weight: 200;
+        }
+
+        .header div span{
+            color: #5379fa !important;
+        }
+
+        .login{
+            position: absolute;
+            top: calc(30% - 75px);
+            left: calc(50% - 50px);
+            height: 150px;
+            width: 400px;
+            padding: 10px;
+            z-index: 2;
+        }
+
+        .login input[type=text]{
+            width: 250px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 2px;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 4px;margin-top: 10px;
+        }
+        .login input[type=number]{
+            width: 250px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 2px;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 4px;margin-top: 10px;
+        }
+        .login input[type=email]{
+            width: 250px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 2px;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 4px;margin-top: 10px;
+        }
+
+
+        .login input[type=password]{
+            width: 250px;
+            height: 30px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.6);
+            border-radius: 2px;
+            color: #fff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 4px;
+            margin-top: 10px;
+        }
+
+        .login input[type=button]{
+            width: 260px;
+            height: 35px;
+            background: #fff;
+            border: 1px solid #fff;
+            cursor: pointer;
+            border-radius: 2px;
+            color: #a18d6c;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 6px;
+            margin-top: 10px;
+        }
+
+        .login input[type=button]:hover{
+            opacity: 0.8;
+        }
+
+        .login input[type=button]:active{
+            opacity: 0.6;
+        }
+
+
+        .login input[type=submit]{
+            width: 260px;
+            height: 35px;
+            background: #fff;
+            border: 1px solid #fff;
+            cursor: pointer;
+            border-radius: 2px;
+            color: #a18d6c;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            padding: 6px;
+            margin-top: 10px;
+        }
+
+        .login input[type=submit]:hover{
+            opacity: 0.8;
+        }
+
+        .login input[type=submit]:active{
+            opacity: 0.6;
+        }
+
+        .login input[type=text]:focus{
+            outline: none;
+            border: 1px solid rgba(255,255,255,0.9);
+        }
+
+        .login input[type=password]:focus{
+            outline: none;
+            border: 1px solid rgba(255,255,255,0.9);
+        }
+
+        .login input[type=button]:focus{
+            outline: none;
+        }
+
+        ::-webkit-input-placeholder{
+            color: rgba(255,255,255,0.6);
+        }
+
+        ::-moz-input-placeholder{
+            color: rgba(255,255,255,0.6);
+
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            padding: 12px 16px;
+            z-index: 1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+</head>
+
+<body>
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Happy<span>Homes</span></div>
+</div>
+<br>
+<form ng-submit="search()">
+    <div class="login">
+        <input type="text" placeholder="location" ng-model="form.location"><br>
+        <br>
+        <select name="type" ng-model="form.type"  style="width:260px;margin-top:5px; height: 40px;">
+        <option value="apartment">Apartment</option>
+        <option value="bunglaw">Bunglaw</option>
+        </select><br>
+
+        <br>
+        <select name="features" ng-model="form.features"  style="width:260px; height: 40px;;margin-top:0px;">
+        <option value="1BHK">1BHK</option>
+        <option value="2BHK">2BHK</option>
+        <option value="3BHK">3BHK</option>
+        </select><br>
+
+
+        <br> <input type="text" placeholder="minimum cost" ng-model="form.minPrice" >
+
+        <input type="text" placeholder="maximum cost" ng-model="form.maxPrice"><br>
+        <br><input type="submit" value="Search">
+</form>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+</body>
+</html>
